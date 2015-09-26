@@ -8,8 +8,7 @@ local function light_it_up(itemstack, placer, pointed_thing)
 	for i = 1,60 do
 		local pos1 = {x=pos.x, y=pos.y-i, z=pos.z}
 		local pos2 = {x=pos1.x, y=pos1.y-1, z=pos1.z}
-		if minetest.get_item_group(minetest.get_node( {x=pos1.x, y=pos1.y+1, z=pos1.z}).name, "light") < 1
-		and pos ~= {x=pos1.x, y=pos1.y+1, z=pos1.z} then
+		if minetest.get_item_group(minetest.get_node( {x=pos1.x, y=pos1.y+1, z=pos1.z}).name, "light") < 1 then
 			return
 		end
 		if minetest.get_node(pos1).name == "air" then
