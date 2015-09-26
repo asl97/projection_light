@@ -1,7 +1,7 @@
 local function light_it_up(itemstack, placer, pointed_thing)
 	local pos = pointed_thing.above
 	if minetest.get_item_group(minetest.get_node(pos).name, "water") > 0 then
-		minetest.add_node(pos, {name = "projection_light:water_light"}) 
+		minetest.add_node(pos, {name = "projection_light:water_light"})
 	else
 		minetest.add_node(pos, {name = "projection_light:light"})
 	end
@@ -9,13 +9,13 @@ local function light_it_up(itemstack, placer, pointed_thing)
 		local pos1 = {x=pos.x, y=pos.y-i, z=pos.z}
 		local pos2 = {x=pos1.x, y=pos1.y-1, z=pos1.z}
 		if minetest.get_item_group(minetest.get_node( {x=pos1.x, y=pos1.y+1, z=pos1.z}).name, "light") < 1
-		and pos ~= {x=pos1.x, y=pos1.y+1, z=pos1.z} then 
-			return 
+		and pos ~= {x=pos1.x, y=pos1.y+1, z=pos1.z} then
+			return
 		end
 		if minetest.get_node(pos1).name == "air" then
-			minetest.add_node(pos1, {name = "projection_light:light_node"} ) 
+			minetest.add_node(pos1, {name = "projection_light:light_node"} )
 		elseif minetest.get_node(pos1).name == "default:water_source" then
-			minetest.add_node(pos1, {name = "projection_light:water_light_node"} ) 
+			minetest.add_node(pos1, {name = "projection_light:water_light_node"} )
 		end
 	end
 	return
@@ -34,7 +34,7 @@ local function lights_off(pos)
 		elseif minetest.get_node(pos1).name == "projection_light:water_light_node" then
 			minetest.add_node(pos1, {name = "default:water_source"} )
 		elseif minetest.get_node(pos1).name == ( "projection_light:light" or "projection_light:water_light" ) then
-			return 
+			return
 		end
 	end
 end
@@ -111,7 +111,7 @@ minetest.register_node("projection_light:light", {
 	groups = { snappy = 3, light=2 },
 	selection_box = {
 		type = "fixed",
-		fixed = {{-0.5 , 0.3125, -0.5, 0.5, 0.5, 0.5},}, 
+		fixed = {{-0.5 , 0.3125, -0.5, 0.5, 0.5, 0.5},},
 	},
 	on_place = function(itemstack, placer, pointed_thing)
 		light_it_up(itemstack, placer, pointed_thing)
@@ -119,7 +119,7 @@ minetest.register_node("projection_light:light", {
 	after_dig_node = function(pos, oldnode, oldmetadata, digger)
 		lights_off(pos)
 	end,
-}) 
+})
 
 minetest.register_node("projection_light:water_light", {
 	description = "Underwater Projection Lighting",
