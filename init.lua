@@ -8,9 +8,9 @@ local function light_it_up(itemstack, placer, pointed_thing)
 	for i = 1,60 do
 		local pos1 = {x=pos.x, y=pos.y-i, z=pos.z}
 		if minetest.get_node(pos1).name == "air" then
-			minetest.add_node(pos1, {name = "projection_light:light_node"} )
+			minetest.add_node(pos1, {name = "projection_light:light_node"})
 		elseif minetest.get_node(pos1).name == "default:water_source" then
-			minetest.add_node(pos1, {name = "projection_light:water_light_node"} )
+			minetest.add_node(pos1, {name = "projection_light:water_light_node"})
 		else
 			return
 		end
@@ -20,16 +20,16 @@ end
 
 local function lights_off(pos)
 	if minetest.get_node(pos).name == "projection_light:light" then
-		minetest.add_node(pos, {name = "air"} )
+		minetest.add_node(pos, {name = "air"})
 	elseif minetest.get_node(pos).name == "projection_light:water_light" then
-		minetest.add_node(pos, {name = "default:water_source"} )
+		minetest.add_node(pos, {name = "default:water_source"})
 	end
 	for i = 1,60 do
 		local pos1 = {x=pos.x, y=pos.y-i, z=pos.z}
 		if minetest.get_node(pos1).name == "projection_light:light_node" then
-			minetest.add_node(pos1, {name = "air"} )
+			minetest.add_node(pos1, {name = "air"})
 		elseif minetest.get_node(pos1).name == "projection_light:water_light_node" then
-			minetest.add_node(pos1, {name = "default:water_source"} )
+			minetest.add_node(pos1, {name = "default:water_source"})
 		else
 			return
 		end
