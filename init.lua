@@ -7,7 +7,6 @@ local function light_it_up(itemstack, placer, pointed_thing)
 	end
 	for i = 1,60 do
 		local pos1 = {x=pos.x, y=pos.y-i, z=pos.z}
-		local pos2 = {x=pos1.x, y=pos1.y-1, z=pos1.z}
 		if minetest.get_node(pos1).name == "air" then
 			minetest.add_node(pos1, {name = "projection_light:light_node"} )
 		elseif minetest.get_node(pos1).name == "default:water_source" then
