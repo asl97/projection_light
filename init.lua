@@ -1,6 +1,6 @@
 local function light_it_up(itemstack, placer, pointed_thing)
 	local pos = pointed_thing.above
-	if minetest.get_item_group(minetest.get_node(pos).name, "water") > 0 then
+	if minetest.get_node(pos).name == "default:water_source" then
 		minetest.add_node(pos, {name = "projection_light:water_light"})
 	else
 		minetest.add_node(pos, {name = "projection_light:light"})
