@@ -30,7 +30,7 @@ local function lights_off(pos)
 			minetest.add_node(pos1, {name = "air"} )
 		elseif minetest.get_node(pos1).name == "projection_light:water_light_node" then
 			minetest.add_node(pos1, {name = "default:water_source"} )
-		elseif minetest.get_node(pos1).name == ( "projection_light:light" or "projection_light:water_light" ) then
+		else
 			return
 		end
 	end
